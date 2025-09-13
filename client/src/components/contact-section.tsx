@@ -91,8 +91,8 @@ export default function ContactSection() {
             <div className="space-y-8">
               {contactInfo.map((info, index) => (
                 <div key={info.title} className="flex items-start space-x-4">
-                  <div className="bg-accent text-accent-foreground p-3 rounded-lg">
-                    <info.icon className="w-6 h-6" />
+                  <div className="glass-light bg-accent/20 text-primary-foreground border border-accent/30 p-3 rounded-lg shadow-lg hover-glow transition-all duration-300">
+                    <info.icon className="w-6 h-6" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
@@ -113,10 +113,11 @@ export default function ContactSection() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="bg-primary-foreground text-primary p-3 rounded-lg hover:bg-primary-foreground/90 transition-colors duration-300"
+                    className="glass bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 p-3 rounded-lg hover:glass-strong hover:bg-primary-foreground/20 hover:border-primary-foreground/50 transition-all duration-400 hover-glow shadow-lg"
                     data-testid={`social-link-${link.label.toLowerCase()}`}
+                    aria-label={`Connect with me on ${link.label}`}
                   >
-                    <link.icon className="w-6 h-6" />
+                    <link.icon className="w-6 h-6" aria-hidden="true" />
                   </a>
                 ))}
               </div>
@@ -127,7 +128,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={hasIntersected ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-card text-card-foreground p-8 rounded-2xl shadow-2xl"
+            className="glass-strong text-card-foreground p-8 rounded-2xl shadow-2xl border border-border/20 hover-lift"
           >
             <h3 className="text-2xl font-bold font-serif mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -143,7 +144,7 @@ export default function ContactSection() {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     placeholder="John"
-                    className="w-full"
+                    className="w-full glass-light border border-border/30 focus:border-accent/50 focus:ring-accent/20 transition-all duration-300"
                     data-testid="input-first-name"
                   />
                 </div>
@@ -158,7 +159,7 @@ export default function ContactSection() {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     placeholder="Doe"
-                    className="w-full"
+                    className="w-full glass-light border border-border/30 focus:border-accent/50 focus:ring-accent/20 transition-all duration-300"
                     data-testid="input-last-name"
                   />
                 </div>
@@ -175,7 +176,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="john@example.com"
-                  className="w-full"
+                  className="w-full glass-light border border-border/30 focus:border-accent/50 focus:ring-accent/20 transition-all duration-300"
                   data-testid="input-email"
                 />
               </div>
@@ -191,7 +192,7 @@ export default function ContactSection() {
                   value={formData.company}
                   onChange={handleInputChange}
                   placeholder="Your Company"
-                  className="w-full"
+                  className="w-full glass-light border border-border/30 focus:border-accent/50 focus:ring-accent/20 transition-all duration-300"
                   data-testid="input-company"
                 />
               </div>
@@ -201,7 +202,7 @@ export default function ContactSection() {
                   Service Interested In
                 </label>
                 <Select onValueChange={handleServiceChange} value={formData.service}>
-                  <SelectTrigger className="w-full" data-testid="select-service">
+                  <SelectTrigger className="w-full glass-light border border-border/30 focus:border-accent/50 transition-all duration-300" data-testid="select-service">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
@@ -225,14 +226,14 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   rows={4}
                   placeholder="Tell me about your project..."
-                  className="w-full"
+                  className="w-full glass-light border border-border/30 focus:border-accent/50 focus:ring-accent/20 transition-all duration-300"
                   data-testid="textarea-message"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 hover-lift"
+                className="w-full glass bg-primary/20 text-primary-foreground border border-primary/30 px-8 py-4 rounded-lg font-semibold hover:glass-strong hover:bg-primary/30 hover:border-primary/50 transition-all duration-400 hover-lift hover-glow shadow-lg"
                 data-testid="button-send-message"
               >
                 Send Message <Send className="ml-2 w-4 h-4" />

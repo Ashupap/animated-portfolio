@@ -52,10 +52,10 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-card p-8 rounded-2xl shadow-lg hover-lift"
+              className="glass-strong p-8 rounded-2xl shadow-xl hover-lift border border-border/20"
             >
               <div className="flex items-center mb-4">
-                <div className="bg-primary text-primary-foreground p-3 rounded-lg mr-4">
+                <div className="glass bg-primary/20 text-primary border border-primary/30 p-3 rounded-lg mr-4 shadow-lg">
                   <GraduationCap className="text-xl" />
                 </div>
                 <h3 className="text-2xl font-bold font-serif">Education & Credentials</h3>
@@ -74,10 +74,10 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-card p-8 rounded-2xl shadow-lg hover-lift"
+              className="glass-strong p-8 rounded-2xl shadow-xl hover-lift border border-border/20"
             >
               <div className="flex items-center mb-4">
-                <div className="bg-accent text-accent-foreground p-3 rounded-lg mr-4">
+                <div className="glass bg-accent/20 text-accent border border-accent/30 p-3 rounded-lg mr-4 shadow-lg">
                   <Trophy className="text-xl" />
                 </div>
                 <h3 className="text-2xl font-bold font-serif">Career Highlights</h3>

@@ -72,10 +72,10 @@ export default function ServicesSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-card p-8 rounded-2xl shadow-lg hover-lift border border-border"
+              className="glass-strong p-8 rounded-2xl shadow-xl hover-lift hover-glow border border-border/20"
               data-testid={`service-card-${index}`}
             >
-              <div className={`${service.color} text-white p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6`}>
+              <div className={`glass ${service.color === 'bg-primary' ? 'bg-primary/20 text-primary border-primary/30' : 'bg-accent/20 text-accent border-accent/30'} border p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg`}>
                 <service.icon className="w-8 h-8" />
               </div>
               

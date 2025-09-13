@@ -4,9 +4,23 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import VideoBackground from "@/components/video-background";
 import { VideoAssetManager, VIDEO_CONFIG } from "@/lib/video-assets";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const { scrollToSection } = useScrollAnimation();
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   // Get hero video asset
   const heroAsset = VideoAssetManager.getHeroAsset();
@@ -60,15 +74,15 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={() => scrollToSection("portfolio")}
-                className="bg-accent text-accent-foreground px-8 py-4 rounded-lg font-semibold hover:bg-accent/90 transition-all duration-300 hover-lift"
+                className="glass-light bg-accent/20 text-primary-foreground border border-accent/30 px-8 py-4 rounded-lg font-semibold hover:glass-strong hover:bg-accent/30 hover:border-accent/50 transition-all duration-400 hover-lift hover-glow shadow-lg"
                 data-testid="button-view-portfolio"
               >
                 View My Work
               </Button>
               <Button
-                variant="outline"
+                variant="ghost"
                 onClick={() => scrollToSection("contact")}
-                className="border-2 border-primary-foreground text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary-foreground hover:text-primary transition-all duration-300"
+                className="glass border-2 border-primary-foreground/30 text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:glass-strong hover:bg-primary-foreground/20 hover:border-primary-foreground/50 transition-all duration-400 hover-glow shadow-lg"
                 data-testid="button-contact"
               >
                 Get In Touch
@@ -88,8 +102,8 @@ export default function HeroSection() {
                 alt="Sarah Chen - Finance Professional"
                 className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover border-8 border-accent shadow-2xl hover-lift"
               />
-              <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground rounded-full p-4 shadow-lg">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <div className="absolute -bottom-4 -right-4 glass-strong bg-accent/20 text-primary-foreground border border-accent/30 rounded-full p-4 shadow-xl hover-glow">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
                   <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
                 </svg>
@@ -100,13 +114,22 @@ export default function HeroSection() {
       </div>
       
       <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        animate={prefersReducedMotion ? {} : { y: [0, -10, 0] }}
+        transition={prefersReducedMotion ? {} : { duration: 2, repeat: Infinity }}
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer glass rounded-full p-3 border border-primary-foreground/20 hover:glass-strong transition-all duration-300 ${prefersReducedMotion ? 'motion-reduce' : ''}`}
         onClick={() => scrollToSection("about")}
         data-testid="scroll-indicator"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToSection("about");
+          }
+        }}
+        aria-label="Scroll to About section"
       >
-        <ChevronDown className="text-primary-foreground text-2xl" />
+        <ChevronDown className="text-primary-foreground text-2xl" aria-hidden="true" />
       </motion.div>
     </section>
   );

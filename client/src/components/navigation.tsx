@@ -25,8 +25,8 @@ export default function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled ? "glass-strong border-b border-border/30 shadow-lg" : "glass-light"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ export default function Navigation() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-foreground hover:text-accent transition-colors duration-300 font-medium"
+                  className="text-foreground hover:text-accent hover-glow transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-glass-bg shadow-sm"
                   data-testid={`nav-link-${link.href}`}
                 >
                   {link.label}
@@ -55,9 +55,10 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="hover:bg-glass-bg transition-all duration-300"
               data-testid="mobile-menu-toggle"
             >
-              {isMobileMenuOpen ? <X /> : <Menu />}
+              {isMobileMenuOpen ? <X className="text-foreground" /> : <Menu className="text-foreground" />}
             </Button>
           </div>
         </div>
@@ -65,13 +66,13 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div className="md:hidden glass-strong border-t border-border/30 shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-300 font-medium w-full text-left"
+                className="block px-3 py-2 text-foreground hover:text-accent hover:bg-glass-bg transition-all duration-300 font-medium w-full text-left rounded-lg shadow-sm"
                 data-testid={`mobile-nav-link-${link.href}`}
               >
                 {link.label}

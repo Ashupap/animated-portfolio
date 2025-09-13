@@ -154,15 +154,15 @@
   }
 
   .glass-light {
-    background: hsla(210, 40%, 98%, 0.8);
-    border: 1px solid hsla(214, 32%, 91%, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: hsla(210, 40%, 98%, 0.9);
+    border: 1px solid hsla(214, 32%, 91%, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .dark .glass-light {
-    background: hsla(228, 9.8039%, 10%, 0.8);
-    border: 1px solid hsla(210, 5.2632%, 14.9020%, 0.4);
+    background: hsla(228, 9.8039%, 10%, 0.9);
+    border: 1px solid hsla(210, 5.2632%, 14.9020%, 0.5);
   }
 
   .glass-strong {
@@ -243,6 +243,22 @@
   .hover-glow:hover {
     box-shadow: 0 0 30px var(--finance-teal), 0 0 60px var(--finance-teal);
     transform: translateY(-2px);
+  }
+
+  /* Enhanced Focus Visibility for Glass Elements */
+  .glass:focus-visible,
+  .glass-light:focus-visible,
+  .glass-strong:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring), var(--glass-shadow);
+  }
+
+  /* Better focus for buttons over glass backgrounds */
+  button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
   }
 
   /* Overlay and Layer Utilities */
@@ -340,6 +356,19 @@
       background: var(--finance-navy);
       -webkit-background-clip: text;
       background-clip: text;
+    }
+
+    /* Disable Framer Motion continuous animations */
+    [data-framer-motion] {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    /* Static fallbacks for continuous motion elements */
+    .motion-reduce {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
     }
   }
 

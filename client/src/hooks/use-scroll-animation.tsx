@@ -15,7 +15,11 @@ export function useScrollAnimation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      element.scrollIntoView({ 
+        behavior: prefersReducedMotion ? "auto" : "smooth" 
+      });
     }
   };
 

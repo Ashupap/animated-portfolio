@@ -50,8 +50,9 @@ export default function Footer() {
                   href={link.href}
                   className="text-background/60 hover:text-accent transition-colors duration-300"
                   data-testid={`footer-social-${link.label.toLowerCase()}`}
+                  aria-label={`Connect with me on ${link.label}`}
                 >
-                  <link.icon className="w-6 h-6" />
+                  <link.icon className="w-6 h-6" aria-hidden="true" />
                 </a>
               ))}
             </div>
