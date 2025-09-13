@@ -251,14 +251,14 @@ function VideoModal({ item, isOpen, onClose }: { item: typeof portfolioItems[0],
                 data-testid={`play-button-modal-${item.id}`}
               >
                 <div className="glass p-4 rounded-full hover-glow">
-                  <Play className="w-12 h-12 text-white fill-current" aria-hidden="true" />
+                  <Play className="w-12 h-12 text-foreground fill-current" aria-hidden="true" />
                 </div>
               </div>
             )}
             
             {/* Duration Badge */}
             <div 
-              className="absolute top-4 right-4 glass px-3 py-1 rounded-lg flex items-center text-white text-sm"
+              className="absolute top-4 right-4 glass px-3 py-1 rounded-lg flex items-center text-foreground text-sm"
               aria-label={`Video duration: ${item.duration}`}
             >
               <Clock className="w-4 h-4 mr-1" aria-hidden="true" />
@@ -448,7 +448,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
             </div>
             
             {/* Content */}
-            <div className="relative h-full p-8 flex flex-col justify-end text-white">
+            <div className="relative h-full p-8 flex flex-col justify-end text-foreground">
               {/* Header */}
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-3">
@@ -467,7 +467,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
               
               {/* Description */}
               <p 
-                className="text-white/90 mb-6 leading-relaxed"
+                className="text-foreground/90 mb-6 leading-relaxed"
                 id={`card-description-${item.id}`}
               >
                 {item.description}
@@ -478,7 +478,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
                 {item.metrics.map((metric, metricIndex) => (
                   <div key={metricIndex} className="glass-light p-3 rounded-lg text-center">
                     <div className="text-lg font-bold text-accent">{metric.value}</div>
-                    <div className="text-xs text-white/70">{metric.label}</div>
+                    <div className="text-xs text-foreground/70">{metric.label}</div>
                   </div>
                 ))}
               </div>
@@ -487,7 +487,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
               <div className="flex items-center justify-between">
                 <div className="flex flex-wrap gap-2">
                   {item.tags.slice(0, 2).map((tag, tagIndex) => (
-                    <span key={tagIndex} className="bg-white/20 text-white px-2 py-1 rounded-full text-xs">
+                    <span key={tagIndex} className="bg-muted/20 text-foreground px-2 py-1 rounded-full text-xs">
                       {tag}
                     </span>
                   ))}
@@ -512,7 +512,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
                 className="absolute inset-0 flex items-center justify-center bg-black/20 pointer-events-none"
               >
                 <div className="glass p-6 rounded-full">
-                  <Play className="w-12 h-12 text-white fill-current" />
+                  <Play className="w-12 h-12 text-foreground fill-current" />
                 </div>
               </motion.div>
             )}

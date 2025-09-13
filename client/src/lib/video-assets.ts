@@ -12,7 +12,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_primary: {
     id: "hero_primary",
     title: "Abstract Financial Data Flow",
-    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    mp4: "https://assets.mixkit.co/videos/preview/mixkit-digital-city-skyline-at-sunset-4803-large.mp4",
     poster: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 30,
     theme: "finance",
@@ -22,7 +22,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_corporate: {
     id: "hero_corporate", 
     title: "Modern Corporate Environment",
-    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    mp4: "https://assets.mixkit.co/videos/preview/mixkit-business-man-working-on-laptop-in-office-4774-large.mp4",
     poster: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 25,
     theme: "corporate",
@@ -32,7 +32,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_abstract: {
     id: "hero_abstract",
     title: "Abstract Data Visualization",
-    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    mp4: "https://assets.mixkit.co/videos/preview/mixkit-digital-background-with-data-visualization-4789-large.mp4",
     poster: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 20,
     theme: "abstract",
@@ -42,7 +42,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_professional: {
     id: "hero_professional",
     title: "Professional Consultation",
-    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+    mp4: "https://assets.mixkit.co/videos/preview/mixkit-business-team-discussing-in-office-4772-large.mp4",
     poster: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 35,
     theme: "professional",
@@ -57,7 +57,7 @@ export const BACKUP_VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_simple_abstract: {
     id: "hero_simple_abstract",
     title: "Simple Abstract Background",
-    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    mp4: "https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-lines-background-4791-large.mp4",
     poster: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 10,
     theme: "abstract",
@@ -66,7 +66,7 @@ export const BACKUP_VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_simple_professional: {
     id: "hero_simple_professional", 
     title: "Simple Professional Background",
-    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    mp4: "https://assets.mixkit.co/videos/preview/mixkit-modern-office-building-exterior-4804-large.mp4",
     poster: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 15,
     theme: "professional",
