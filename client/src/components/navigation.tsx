@@ -1,6 +1,15 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { 
+  Sheet, 
+  SheetContent, 
+  SheetHeader, 
+  SheetTitle, 
+  SheetTrigger,
+  SheetClose
+} from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 
@@ -51,36 +60,82 @@ export default function Navigation() {
           </div>
           
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="hover:bg-glass-bg transition-all duration-300"
-              data-testid="mobile-menu-toggle"
-            >
-              {isMobileMenuOpen ? <X className="text-foreground" /> : <Menu className="text-foreground" />}
-            </Button>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hover:bg-glass-bg transition-all duration-300 hover-glow"
+                  data-testid="mobile-menu-toggle"
+                  aria-label="Open mobile navigation menu"
+                >
+                  <Menu className="text-foreground h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent 
+                side="right" 
+                className="w-[85%] max-w-sm glass-strong border-l border-border/20 backdrop-blur-lg"
+                data-testid="mobile-sidebar"
+              >
+                <SheetHeader className="mb-8">
+                  <SheetTitle className="text-left">
+                    <h2 className="text-2xl font-bold gradient-text-primary font-serif">Sarah Chen</h2>
+                    <p className="text-sm text-muted-foreground mt-1 font-normal">Financial Technology Expert</p>
+                  </SheetTitle>
+                </SheetHeader>
+                
+                <nav className="flex flex-col space-y-4">
+                  {navLinks.map((link, index) => (
+                    <SheetClose asChild key={link.href}>
+                      <button
+                        onClick={() => handleNavClick(link.href)}
+                        className="flex items-center px-4 py-3 text-left text-foreground hover:text-accent hover:bg-glass-bg rounded-lg transition-all duration-300 font-medium text-base group hover-lift"
+                        data-testid={`mobile-nav-link-${link.href}`}
+                        style={{ 
+                          animationDelay: `${index * 0.1}s`,
+                          opacity: 0,
+                          animation: 'fade-in-up 0.6s ease-out forwards'
+                        }}
+                      >
+                        <span className="group-hover:translate-x-2 transition-transform duration-300">
+                          {link.label}
+                        </span>
+                      </button>
+                    </SheetClose>
+                  ))}
+                </nav>
+                
+                <Separator className="my-8 bg-border/20" />
+                
+                <div className="space-y-4" role="complementary" aria-label="Contact information">
+                  <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Connect</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3 text-sm text-foreground/80" role="listitem">
+                      <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
+                      <span aria-label="Email address">sarah.chen@example.com</span>
+                    </div>
+                    <div className="flex items-center space-x-3 text-sm text-foreground/80" role="listitem">
+                      <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+                      <span aria-label="Phone number">+1 (555) 123-4567</span>
+                    </div>
+                    <div className="flex items-center space-x-3 text-sm text-foreground/80" role="listitem">
+                      <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
+                      <span aria-label="Location">San Francisco, CA</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-xs text-muted-foreground text-center">
+                    © 2024 Sarah Chen. All rights reserved.
+                  </p>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden glass-strong border-t border-border/30 shadow-xl">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="block px-3 py-2 text-foreground hover:text-accent hover:bg-glass-bg transition-all duration-300 font-medium w-full text-left rounded-lg shadow-sm"
-                data-testid={`mobile-nav-link-${link.href}`}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
