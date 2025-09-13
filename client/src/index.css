@@ -304,16 +304,37 @@
   .glass:focus-visible,
   .glass-light:focus-visible,
   .glass-strong:focus-visible {
-    outline: 2px solid var(--ring);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring), var(--glass-shadow);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5), 0 0 0 4px var(--accent), var(--glass-shadow);
   }
 
   /* Better focus for buttons over glass backgrounds */
   button:focus-visible {
-    outline: 2px solid var(--ring);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5), 0 0 0 4px var(--accent);
+  }
+  
+  /* Ensure video backgrounds are visible */
+  .video-container {
+    position: relative;
+    z-index: 0;
+  }
+  
+  .video-overlay {
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .content-layer {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Better contrast for text over video */
+  .text-shadow-strong {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.5);
   }
 
   /* Overlay and Layer Utilities */
@@ -550,7 +571,7 @@
       0 0 20px rgba(var(--finance-teal), 0.05);
   }
 
-  /* Responsive Grid Adjustments */
+  /* Enhanced Responsive Grid Adjustments */
   @media (max-width: 1024px) {
     .lg\:row-span-2 {
       grid-row: span 1 !important;
@@ -558,6 +579,11 @@
     
     .grid-card-featured {
       min-height: 300px;
+    }
+    
+    /* Better grid spacing for tablets */
+    .grid.gap-8 {
+      gap: 1.5rem;
     }
   }
 
@@ -569,6 +595,23 @@
     .grid-card-hover:hover {
       transform: none;
       box-shadow: none;
+    }
+    
+    /* Better mobile spacing */
+    .grid.gap-8 {
+      gap: 1rem;
+    }
+    
+    /* Improve mobile card readability */
+    .glass-strong {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Better mobile button visibility */
+    .glass-light {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
     }
   }
 

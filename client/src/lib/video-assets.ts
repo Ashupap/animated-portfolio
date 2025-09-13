@@ -12,7 +12,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_primary: {
     id: "hero_primary",
     title: "Abstract Financial Data Flow",
-    mp4: "https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1b1a67fd8&profile_id=165&oauth2_token_id=57447761",
+    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     poster: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 30,
     theme: "finance",
@@ -22,7 +22,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_corporate: {
     id: "hero_corporate", 
     title: "Modern Corporate Environment",
-    mp4: "https://player.vimeo.com/external/418653475.sd.mp4?s=0e4ce372b988d30a0af3b6b8b88d6bf2dd7e58c9&profile_id=165&oauth2_token_id=57447761",
+    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     poster: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 25,
     theme: "corporate",
@@ -32,7 +32,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_abstract: {
     id: "hero_abstract",
     title: "Abstract Data Visualization",
-    mp4: "https://player.vimeo.com/external/322002893.sd.mp4?s=c9de9faa8479bafd12c2e60b6b5c1953d5b21c4a&profile_id=165&oauth2_token_id=57447761",
+    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     poster: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 20,
     theme: "abstract",
@@ -42,7 +42,7 @@ export const VIDEO_ASSETS: Record<string, VideoAsset> = {
   hero_professional: {
     id: "hero_professional",
     title: "Professional Consultation",
-    mp4: "https://player.vimeo.com/external/456317671.sd.mp4?s=5f4f0c1b9a2c7d9e8f7a6b5c4d3e2f1a9b8c7d6e&profile_id=165&oauth2_token_id=57447761",
+    mp4: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
     poster: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80",
     duration: 35,
     theme: "professional",

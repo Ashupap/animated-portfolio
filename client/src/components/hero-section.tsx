@@ -30,19 +30,19 @@ export default function HeroSection() {
       id="home"
       className="min-h-screen text-primary-foreground relative overflow-hidden"
     >
-      {/* Video Background with enhanced overlay */}
+      {/* Video Background with reduced overlay */}
       <VideoBackground
         asset={heroAsset}
-        enableStarfield={true}
-        overlayOpacity={0.5}
-        overlayGradient={VIDEO_CONFIG.HERO_OVERLAY_GRADIENT}
+        enableStarfield={false}
+        overlayOpacity={0.2}
+        overlayGradient="radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(37, 99, 235, 0.1) 40%, rgba(0,0,0,0.3) 100%)"
         pauseOnHidden={true}
         className="z-0"
         data-testid="hero-video-background"
       />
 
-      {/* Additional glass-morphism overlay for better text readability */}
-      <div className="absolute inset-0 glass-light bg-gradient-to-br from-primary/30 via-transparent to-primary/40 z-[3]"></div>
+      {/* Minimal overlay for text readability only */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20 z-[1]"></div>
       
       <div className="relative z-[10] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-8rem)]">
@@ -74,15 +74,15 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={() => scrollToSection("portfolio")}
-                className="glass-light bg-accent/20 text-primary-foreground border border-accent/30 px-8 py-4 rounded-lg font-semibold hover:glass-strong hover:bg-accent/30 hover:border-accent/50 transition-all duration-400 hover-lift hover-glow shadow-lg"
+                className="bg-accent/80 text-white border border-accent px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:border-accent/70 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300 hover-lift hover-glow shadow-lg backdrop-blur-sm"
                 data-testid="button-view-portfolio"
               >
                 View My Work
               </Button>
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => scrollToSection("contact")}
-                className="glass border-2 border-primary-foreground/30 text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:glass-strong hover:bg-primary-foreground/20 hover:border-primary-foreground/50 transition-all duration-400 hover-glow shadow-lg"
+                className="bg-white/10 border-2 border-white/50 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 hover:border-white/70 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 hover-glow shadow-lg backdrop-blur-sm"
                 data-testid="button-contact"
               >
                 Get In Touch

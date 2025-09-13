@@ -50,7 +50,7 @@ export default function Navigation() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-foreground hover:text-accent hover-glow transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-glass-bg shadow-sm"
+                  className="text-white hover:text-accent hover-glow transition-all duration-300 font-medium px-4 py-2 rounded-lg hover:bg-white/10 hover:backdrop-blur-md shadow-sm border border-transparent hover:border-accent/30"
                   data-testid={`nav-link-${link.href}`}
                 >
                   {link.label}

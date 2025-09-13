@@ -283,8 +283,8 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        {/* MiladiCode-style Dynamic Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+        {/* Improved Grid Layout with Better Spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-min">
           {services.map((service, index) => renderServiceCard(service, index))}
         </div>
         
