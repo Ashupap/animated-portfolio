@@ -61,11 +61,42 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        finance: {
+          navy: "var(--finance-navy)",
+          teal: "var(--finance-teal)",
+          amber: "var(--finance-amber)",
+          gold: "var(--finance-gold)",
+        },
+        glass: {
+          bg: "var(--glass-bg)",
+          border: "var(--glass-border)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+      },
+      zIndex: {
+        base: "var(--z-base)",
+        dropdown: "var(--z-dropdown)",
+        sticky: "var(--z-sticky)",
+        fixed: "var(--z-fixed)",
+        "modal-backdrop": "var(--z-modal-backdrop)",
+        modal: "var(--z-modal)",
+        popover: "var(--z-popover)",
+        tooltip: "var(--z-tooltip)",
+        starfield: "var(--z-starfield)",
+        "video-overlay": "var(--z-video-overlay)",
+      },
+      backdropBlur: {
+        xs: "2px",
+        sm: "4px",
+        md: "8px",
+        lg: "16px",
+        xl: "24px",
+        "2xl": "32px",
+        glass: "16px",
       },
       keyframes: {
         "accordion-down": {
@@ -94,11 +125,57 @@ export default {
             transform: "translateY(0)" 
           },
         },
+        "gradient-flow": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "gradient-slide": {
+          "0%, 100%": { backgroundPosition: "0% 0%" },
+          "50%": { backgroundPosition: "100% 0%" },
+        },
+        "starfield-move": {
+          from: { transform: "translateY(0px)" },
+          to: { transform: "translateY(-200px)" },
+        },
+        "fade-in-up": {
+          from: {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "slide-in-left": {
+          from: {
+            opacity: "0",
+            transform: "translateX(-30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
+        typing: {
+          from: { width: "0" },
+          to: { width: "100%" },
+        },
+        "blink-cursor": {
+          "from, to": { borderColor: "transparent" },
+          "50%": { borderColor: "var(--finance-amber)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 1s ease-in-out",
+        "gradient-flow": "gradient-flow 8s ease-in-out infinite",
+        "gradient-slide": "gradient-slide 6s ease-in-out infinite", 
+        "starfield-move": "starfield-move 20s linear infinite",
+        "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "slide-in-left": "slide-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        typing: "typing 3s steps(40, end), blink-cursor 0.75s step-end infinite",
       },
     },
   },

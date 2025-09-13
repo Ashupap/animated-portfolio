@@ -50,6 +50,27 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+  
+  /* Glass-morphism and Finance Colors */
+  --glass-bg: hsla(210, 40%, 98%, 0.05);
+  --glass-border: hsla(214, 32%, 91%, 0.18);
+  --glass-shadow: 0 8px 32px hsla(217, 91%, 33%, 0.12);
+  --finance-navy: hsl(217, 91%, 33%);
+  --finance-teal: hsl(180, 100%, 25%);
+  --finance-amber: hsl(45, 100%, 51%);
+  --finance-gold: hsl(43, 74%, 49%);
+  
+  /* Overlay and Layer Z-indices */
+  --z-base: 1;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-starfield: 0;
+  --z-video-overlay: 2;
 }
 
 .dark {
@@ -97,6 +118,15 @@
   --shadow-lg: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00), 0px 4px 6px -1px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
   --shadow-xl: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00), 0px 8px 10px -1px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
+  
+  /* Dark Mode Glass-morphism and Finance Colors */
+  --glass-bg: hsla(0, 0%, 0%, 0.15);
+  --glass-border: hsla(210, 5.2632%, 14.9020%, 0.25);
+  --glass-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.25);
+  --finance-navy: hsl(203.7736, 87.6033%, 52.5490%);
+  --finance-teal: hsl(180, 100%, 35%);
+  --finance-amber: hsl(45, 100%, 61%);
+  --finance-gold: hsl(43, 74%, 59%);
 }
 
 @layer base {
@@ -114,27 +144,248 @@
 }
 
 @layer components {
+  /* Glass-morphism Utilities */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-light {
+    background: hsla(210, 40%, 98%, 0.8);
+    border: 1px solid hsla(214, 32%, 91%, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .dark .glass-light {
+    background: hsla(228, 9.8039%, 10%, 0.8);
+    border: 1px solid hsla(210, 5.2632%, 14.9020%, 0.4);
+  }
+
+  .glass-strong {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: var(--glass-shadow), 0 4px 16px hsla(217, 91%, 33%, 0.05);
+  }
+
+  .glass-mobile {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Mobile Performance Optimizations */
+  @media (max-width: 640px) {
+    .glass {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .glass-light {
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .glass-strong {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  }
+
+  /* Enhanced Gradient Text with Finance Colors */
   .gradient-text {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: linear-gradient(135deg, var(--finance-navy), var(--finance-teal), var(--finance-amber));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 8s ease-in-out infinite;
+  }
+
+  .gradient-text-static {
+    background: linear-gradient(135deg, var(--finance-navy), var(--finance-gold));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
+  .gradient-text-finance {
+    background: linear-gradient(90deg, var(--finance-navy) 0%, var(--finance-teal) 35%, var(--finance-amber) 70%, var(--finance-gold) 100%);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-slide 6s ease-in-out infinite;
+  }
+
+  /* Enhanced Hover Effects */
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--glass-border);
   }
 
+  .hover-glow {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px var(--finance-teal), 0 0 60px var(--finance-teal);
+    transform: translateY(-2px);
+  }
+
+  /* Overlay and Layer Utilities */
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: var(--z-video-overlay);
+    pointer-events: none;
+  }
+
+  .starfield-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-starfield);
+    pointer-events: none;
+    background: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: starfield-move 20s linear infinite;
+  }
+
+  .dark .starfield-overlay {
+    background: radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.1), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+  }
+
+  .content-overlay {
+    position: relative;
+    z-index: var(--z-base);
+  }
+
+  /* Z-Index Management is handled by Tailwind theme configuration */
+
+  /* Enhanced Animations */
   .animate-typing {
     overflow: hidden;
-    border-right: 3px solid var(--accent);
+    border-right: 3px solid var(--finance-amber);
     white-space: nowrap;
     animation: typing 3s steps(40, end), blink-cursor 0.75s step-end infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .progress-bar {
+    width: 0%;
+    transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(90deg, var(--finance-navy), var(--finance-teal), var(--finance-amber));
+  }
+
+  .progress-bar.animate {
+    width: var(--progress-width);
+  }
+
+  /* Motion Policy - Reduced Motion Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-text,
+    .gradient-text-finance,
+    .starfield-overlay,
+    .animate-typing,
+    .animate-fade-in-up,
+    .animate-slide-in-left {
+      animation: none !important;
+    }
+
+    .hover-lift,
+    .hover-glow,
+    .progress-bar {
+      transition: none !important;
+    }
+
+    .hover-lift:hover {
+      transform: none !important;
+    }
+
+    .hover-glow:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .gradient-text {
+      background: var(--finance-navy);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+
+  /* Motion Policy - Safe Motion Preparation */
+  .motion-safe-fade {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .motion-safe-fade {
+      animation: fade-in-up 0.6s ease-out forwards;
+    }
+  }
+
+  .motion-safe-slide {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .motion-safe-slide {
+      animation: slide-in-left 0.5s ease-out forwards;
+    }
+  }
+
+  .motion-reduce-static {
+    animation: none;
+    transition: none;
+  }
+
+  /* Animation Keyframes */
+  @keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes gradient-slide {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+  }
+
+  @keyframes starfield-move {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-200px); }
   }
 
   @keyframes typing {
@@ -144,15 +395,28 @@
 
   @keyframes blink-cursor {
     from, to { border-color: transparent; }
-    50% { border-color: var(--accent); }
+    50% { border-color: var(--finance-amber); }
   }
 
-  .progress-bar {
-    width: 0%;
-    transition: width 2s ease-in-out;
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .progress-bar.animate {
-    width: var(--progress-width);
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
