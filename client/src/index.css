@@ -401,6 +401,125 @@
     transition: none;
   }
 
+  /* MiladiCode-style Grid Enhancements */
+  .grid-card-featured {
+    position: relative;
+    background: linear-gradient(135deg, rgba(203, 213, 225, 0.05) 0%, rgba(248, 250, 252, 0.05) 100%);
+    border: 1px solid rgba(203, 213, 225, 0.1);
+  }
+
+  .dark .grid-card-featured {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.1) 0%, rgba(15, 23, 42, 0.1) 100%);
+    border: 1px solid rgba(30, 41, 59, 0.2);
+  }
+
+  .grid-card-pattern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at center, rgba(var(--finance-teal), 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .grid-card-floating {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  .grid-stats-counter {
+    animation: count-up 2s ease-out;
+  }
+
+  .grid-skill-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grid-skill-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+    animation-delay: 1s;
+  }
+
+  .grid-intro-card {
+    background: linear-gradient(135deg, 
+      rgba(var(--finance-navy), 0.05) 0%, 
+      rgba(var(--finance-teal), 0.05) 35%, 
+      rgba(var(--finance-amber), 0.05) 70%, 
+      rgba(var(--finance-gold), 0.05) 100%);
+  }
+
+  /* Enhanced Card Interactions */
+  .grid-card-hover {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .grid-card-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .grid-card-hover:hover::before {
+    opacity: 1;
+    animation: shine 0.8s ease-in-out;
+  }
+
+  .grid-card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.15), 
+      0 0 0 1px rgba(var(--finance-teal), 0.1),
+      0 0 20px rgba(var(--finance-teal), 0.05);
+  }
+
+  /* Responsive Grid Adjustments */
+  @media (max-width: 1024px) {
+    .lg\:row-span-2 {
+      grid-row: span 1 !important;
+    }
+    
+    .grid-card-featured {
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .md\:col-span-2 {
+      grid-column: span 1 !important;
+    }
+    
+    .grid-card-hover:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  /* Finance-specific Micro-animations */
+  .finance-pulse {
+    animation: finance-pulse 2s infinite;
+  }
+
+  .finance-slide-up {
+    animation: finance-slide-up 0.6s ease-out;
+  }
+
   /* Animation Keyframes */
   @keyframes gradient-flow {
     0%, 100% { background-position: 0% 50%; }
@@ -446,6 +565,53 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  /* MiladiCode-style Grid Animation Keyframes */
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  @keyframes count-up {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px) scale(0.8); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  @keyframes finance-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 0 0 rgba(var(--finance-teal), 0.4); 
+    }
+    50% { 
+      box-shadow: 0 0 0 10px rgba(var(--finance-teal), 0); 
+    }
+  }
+
+  @keyframes finance-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
