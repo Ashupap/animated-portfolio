@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -44,8 +45,8 @@ export default function Navigation() {
             <h1 className="text-2xl font-bold gradient-text font-serif">Sarah Chen</h1>
           </div>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="flex items-baseline space-x-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
@@ -57,9 +58,11 @@ export default function Navigation() {
                 </button>
               ))}
             </div>
+            <ThemeSwitcher variant="glass" className="ml-4" />
           </div>
           
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-3">
+            <ThemeSwitcher variant="glass" className="mr-1" />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
