@@ -3,11 +3,12 @@ import HeroSection from "@/components/hero-section";
 import AboutSection from "@/components/about-section";
 import ServicesSection from "@/components/services-section";
 import PortfolioSection from "@/components/portfolio-section";
-import SkillsSection from "@/components/skills-section";
+import SkillsCarousel from "@/components/skills-carousel";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
+  // Fixed caching issue with SkillsCarousel import
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -16,7 +17,7 @@ export default function Home() {
         <AboutSection />
         <ServicesSection />
         <PortfolioSection />
-        <SkillsSection />
+        <SkillsCarousel />
         <ContactSection />
       </main>
       <Footer />
