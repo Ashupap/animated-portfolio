@@ -2,18 +2,35 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import VideoBackground from "@/components/video-background";
+import { VideoAssetManager, VIDEO_CONFIG } from "@/lib/video-assets";
 
 export default function HeroSection() {
   const { scrollToSection } = useScrollAnimation();
 
+  // Get hero video asset
+  const heroAsset = VideoAssetManager.getHeroAsset();
+
   return (
     <section
       id="home"
-      className="min-h-screen bg-gradient-to-br from-primary via-primary to-blue-800 text-primary-foreground relative overflow-hidden"
+      className="min-h-screen text-primary-foreground relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-black/20"></div>
+      {/* Video Background with enhanced overlay */}
+      <VideoBackground
+        asset={heroAsset}
+        enableStarfield={true}
+        overlayOpacity={0.5}
+        overlayGradient={VIDEO_CONFIG.HERO_OVERLAY_GRADIENT}
+        pauseOnHidden={true}
+        className="z-0"
+        data-testid="hero-video-background"
+      />
+
+      {/* Additional glass-morphism overlay for better text readability */}
+      <div className="absolute inset-0 glass-light bg-gradient-to-br from-primary/30 via-transparent to-primary/40 z-[3]"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative z-[10] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-8rem)]">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
