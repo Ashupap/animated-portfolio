@@ -76,7 +76,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-white">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 gradient-text-contact">Get In Touch</h2>
           <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
             Ready to transform your financial operations? Let's discuss how we can drive growth and optimize your business performance together.
           </p>
@@ -107,7 +107,7 @@ export default function ContactSection() {
             </div>
 
             <div className="mt-12">
-              <h3 className="text-2xl font-bold font-serif mb-6">Connect With Me</h3>
+              <h3 className="text-2xl font-bold font-serif mb-6 gradient-text-primary">Connect With Me</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((link, index) => (
                   <a
@@ -130,7 +130,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="glass-strong text-card-foreground p-8 rounded-2xl shadow-2xl border border-border/20 hover-lift"
           >
-            <h3 className="text-2xl font-bold font-serif mb-6">Send a Message</h3>
+            <h3 className="text-2xl font-bold font-serif mb-6 gradient-text-primary">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

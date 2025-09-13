@@ -53,7 +53,7 @@ export default function HeroSection() {
           >
             <div className="text-lg font-medium text-accent mb-4">Finance Professional</div>
             <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 leading-tight">
-              <span className="block">Sarah</span>
+              <span className="block gradient-text-hero">Sarah</span>
               <span className="block gradient-text">Chen</span>
             </h1>
             

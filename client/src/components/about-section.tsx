@@ -146,7 +146,7 @@ export default function AboutSection() {
             <div className="relative p-8 h-full flex flex-col justify-between">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-3xl font-bold font-serif mb-2">{card.title}</h3>
+                  <h3 className="text-3xl font-bold font-serif mb-2 gradient-text-accent">{card.title}</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed">{card.content}</p>
                 </div>
                 <div className={`${colorClasses[card.color as keyof typeof colorClasses].glass} p-3 rounded-xl shadow-lg flex-shrink-0 ml-4`}>
@@ -176,7 +176,7 @@ export default function AboutSection() {
               <div className={`${colorClasses[card.color as keyof typeof colorClasses].glass} p-3 rounded-lg mr-3 shadow-lg`}>
                 <card.icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold font-serif">{card.title}</h3>
+              <h3 className="text-xl font-bold font-serif gradient-text-primary">{card.title}</h3>
             </div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               {card.items?.map((item, itemIndex) => (
@@ -226,7 +226,7 @@ export default function AboutSection() {
               <div className={`${colorClasses[card.color as keyof typeof colorClasses].glass} p-3 rounded-lg mr-3 shadow-lg`}>
                 <card.icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold font-serif">{card.title}</h3>
+              <h3 className="text-xl font-bold font-serif gradient-text-primary">{card.title}</h3>
             </div>
             <div className="space-y-3">
               {card.skills?.map((skill, skillIndex) => (
@@ -263,7 +263,7 @@ export default function AboutSection() {
               <div className={`${colorClasses[card.color as keyof typeof colorClasses].glass} p-4 rounded-xl shadow-lg mx-auto mb-4 w-fit`}>
                 <card.icon className="w-6 h-6" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold font-serif mb-3">{card.title}</h3>
+              <h3 className="text-xl font-bold font-serif mb-3 gradient-text-primary">{card.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{card.content}</p>
             </div>
           </motion.div>

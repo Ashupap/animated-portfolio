@@ -157,7 +157,7 @@ export default function ServicesSection() {
                 </div>
               </div>
               
-              <h3 className="text-3xl font-bold font-serif mb-4">{service.title}</h3>
+              <h3 className="text-3xl font-bold font-serif mb-4 gradient-text-card">{service.title}</h3>
               
               <p className="text-muted-foreground mb-6 leading-relaxed text-base">
                 {service.description}
@@ -204,7 +204,7 @@ export default function ServicesSection() {
                   <service.icon className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold font-serif">{service.title}</h3>
+                  <h3 className="text-xl font-bold font-serif gradient-text-card">{service.title}</h3>
                   <div className="text-xs text-accent font-semibold">{service.highlight}</div>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export default function ServicesSection() {
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold font-serif mb-4">{service.title}</h3>
+              <h3 className="text-2xl font-bold font-serif mb-4 gradient-text-card">{service.title}</h3>
               
               <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
                 {service.description}
@@ -295,7 +295,7 @@ export default function ServicesSection() {
         >
           <div className="absolute inset-0 opacity-5 bg-gradient-to-r from-primary via-accent to-primary"></div>
           <div className="relative">
-            <h3 className="text-2xl font-bold font-serif mb-4">Ready to Transform Your Financial Future?</h3>
+            <h3 className="text-2xl font-bold font-serif mb-4 gradient-text-accent">Ready to Transform Your Financial Future?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Let's discuss how these comprehensive financial solutions can be tailored to meet your specific business objectives and drive sustainable growth.
             </p>

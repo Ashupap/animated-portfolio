@@ -461,7 +461,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
                   </div>
                 </div>
                 
-                <h3 className="text-3xl font-bold font-serif mb-2">{item.title}</h3>
+                <h3 className="text-3xl font-bold font-serif mb-2 gradient-text-card">{item.title}</h3>
                 <div className="text-accent font-semibold text-lg mb-3">{item.impact}</div>
               </div>
               
@@ -577,7 +577,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
                 <span className="text-accent font-semibold text-sm">{item.impact}</span>
               </div>
               
-              <h3 className="text-xl font-bold font-serif mb-2">{item.title}</h3>
+              <h3 className="text-xl font-bold font-serif mb-2 gradient-text-card">{item.title}</h3>
               
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
                 {item.description}
@@ -653,7 +653,7 @@ function PortfolioCard({ item, index, hasIntersected }: { item: typeof portfolio
                 <span className="text-accent font-semibold">{item.impact}</span>
               </div>
               
-              <h3 className="text-2xl font-bold font-serif mb-3">{item.title}</h3>
+              <h3 className="text-2xl font-bold font-serif mb-3 gradient-text-card">{item.title}</h3>
               
               <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                 {item.description}

@@ -225,6 +225,61 @@
     animation: gradient-slide 6s ease-in-out infinite;
   }
 
+  /* New Enhanced Gradient Text Variants */
+  .gradient-text-primary {
+    background: linear-gradient(120deg, var(--finance-navy) 0%, var(--finance-teal) 50%, var(--finance-navy) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-wave 4s ease-in-out infinite;
+  }
+
+  .gradient-text-accent {
+    background: linear-gradient(45deg, var(--finance-gold) 0%, var(--finance-amber) 25%, var(--finance-teal) 50%, var(--finance-amber) 75%, var(--finance-gold) 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shimmer 5s linear infinite;
+  }
+
+  .gradient-text-hero {
+    background: linear-gradient(60deg, var(--finance-navy) 0%, var(--finance-teal) 30%, var(--finance-amber) 60%, var(--finance-gold) 100%);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow-slow 10s ease-in-out infinite;
+  }
+
+  .gradient-text-contact {
+    background: linear-gradient(90deg, hsl(0, 0%, 100%) 0%, var(--finance-amber) 25%, hsl(0, 0%, 100%) 50%, var(--finance-gold) 75%, hsl(0, 0%, 100%) 100%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-slide-bright 7s ease-in-out infinite;
+  }
+
+  .gradient-text-card {
+    background: linear-gradient(135deg, var(--finance-navy) 0%, var(--finance-teal) 100%);
+    background-size: 150% 150%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-pulse 3s ease-in-out infinite;
+  }
+
+  .gradient-text-stats {
+    background: linear-gradient(90deg, var(--finance-amber) 0%, var(--finance-gold) 50%, var(--finance-amber) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-slide-fast 2.5s ease-in-out infinite;
+  }
+
   /* Enhanced Hover Effects */
   .hover-lift {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -330,6 +385,12 @@
   @media (prefers-reduced-motion: reduce) {
     .gradient-text,
     .gradient-text-finance,
+    .gradient-text-primary,
+    .gradient-text-accent,
+    .gradient-text-hero,
+    .gradient-text-contact,
+    .gradient-text-card,
+    .gradient-text-stats,
     .starfield-overlay,
     .animate-typing,
     .animate-fade-in-up,
@@ -527,6 +588,39 @@
   }
 
   @keyframes gradient-slide {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+  }
+
+  @keyframes gradient-wave {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 50% 0%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 100%; }
+  }
+
+  @keyframes gradient-shimmer {
+    0% { background-position: -200% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  @keyframes gradient-flow-slow {
+    0%, 100% { background-position: 0% 0%; }
+    33% { background-position: 50% 50%; }
+    66% { background-position: 100% 0%; }
+  }
+
+  @keyframes gradient-slide-bright {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+  }
+
+  @keyframes gradient-pulse {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes gradient-slide-fast {
     0%, 100% { background-position: 0% 0%; }
     50% { background-position: 100% 0%; }
   }
